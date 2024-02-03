@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 dotenv.config();
 
-//neighbour functions
+//neighbor functions
 import connectDB from "./configs/connectDB.js";
 
 //routes
