@@ -5,6 +5,8 @@ import Contact from './pages/Contact/Contact';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
 
 import { Routes, Route } from "react-router-dom"
+import Register from './pages/Auth/Register';
+import Login from './pages/Auth/Login';
 
 function App() {
 
@@ -12,6 +14,8 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={< PageNotFound />} />
