@@ -7,23 +7,23 @@ export const registerController = async (req, res) => {
     const { firstName, lastName, password, address, phone, email } = req.body;
     // validations
     if (!firstName && !lastName) {
-      res.json({ error: "First name or last name is required!", error });
+      res.json({ message: "First name or last name is required!", error });
     }
 
     if (!email) {
-      res.json({ error: "Email is required!", error });
+      res.json({ message: "Email is required!", error });
     }
 
     if (!phone) {
-      res.json({ error: "Email is required!", error });
+      res.json({ message: "Email is required!", error });
     }
 
     if (!password) {
-      res.json({ error: "Password is required!", error });
+      res.json({ message: "Password is required!", error });
     }
 
     if (!address) {
-      res.json({ error: "Address is required!", error });
+      res.json({ message: "Address is required!", error });
     }
 
     //check existing user
@@ -31,7 +31,7 @@ export const registerController = async (req, res) => {
     if (existingUser) {
       return res
         .status(200)
-        .json({ success: true, message: "Already registered. Please login!" });
+        .json({ success: false, message: "Already registered. Please login!" });
     }
 
     const hashedPassword = await hashPassword(password);
@@ -72,12 +72,10 @@ export const loginController = async (req, res) => {
     //check user
     const registeredUser = await UserModel.findOne({ email: email });
     if (!registeredUser) {
-      return res
-        .status(404)
-        .json({
-          success: false,
-          message: "Email is not registered!",
-        });
+      return res.status(404).json({
+        success: false,
+        message: "Email is not registered!",
+      });
     }
 
     //compare password
@@ -89,9 +87,13 @@ export const loginController = async (req, res) => {
     }
 
     //token
-    const token = JWT.sign({ _id: registeredUser._id }, process.env.JWT_SECRET, {
-      expiresIn: "7d",
-    });
+    const token = JWT.sign(
+      { _id: registeredUser._id },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "7d",
+      }
+    );
     res.status(200).json({
       success: true,
       message: "Login successful!",

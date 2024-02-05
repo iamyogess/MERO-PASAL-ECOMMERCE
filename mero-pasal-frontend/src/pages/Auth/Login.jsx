@@ -17,7 +17,6 @@ const Login = () => {
     e.preventDefault();
   }
   
-  console.log(loginData)
   return (
     <Layout>
       
