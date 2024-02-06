@@ -1,41 +1,33 @@
 import React, { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useAuth } from "../../context/auth";
 
-const Login = () => {
+const ForgotPassword = () => {
   const navigate = useNavigate();
-  const location = useLocation();
 
-  const [loginData, setLoginData] = useState({
+  const [resetData, setResetData] = useState({
     email: "",
-    password: "",
+    newPassword: "",
+    answer:""
   });
-  const [auth, setAuth] = useAuth();
 
-  const handleLogin = (e) => {
+  const handleReset = (e) => {
     const { name, value } = e.target;
-    setLoginData((prev) => ({ ...prev, [name]: value }));
+    setResetData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/v1/auth/login/",
-        loginData
+        "http://localhost:8000/api/v1/auth/forgot-password/",
+        resetData
       );
       if (res && res.data.success) {
         toast.success(res.data.message);
-        setAuth({
-          ...auth,
-          user: res.data.user,
-          token: res.data.token,
-        });
-        localStorage.setItem("auth", JSON.stringify(res.data));
-        navigate(location.state || "/");
+        navigate("/login");
       } else {
         toast.error(res.data.message);
       }
@@ -49,7 +41,7 @@ const Login = () => {
     <Layout>
       <div className="d-flex align-items-center justify-content-center vh-100">
         <div className="card p-4" style={{ maxWidth: "600px", width: "90%" }}>
-          <h2 className="text-center mb-4">Login</h2>
+          <h2 className="text-center mb-4">Reset Password</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="email" className="form-label">
@@ -60,39 +52,40 @@ const Login = () => {
                 id="email"
                 className="form-control"
                 name="email"
-                onChange={handleLogin}
+                onChange={handleReset}
               />
             </div>
 
             <div className="mb-3">
-              <label htmlFor="password" className="form-label">
-                Password
+              <label htmlFor="answer" className="form-label">
+              What is your school principal's name?
               </label>
               <input
-                type="password"
-                id="password"
+                type="text"
+                id="answer"
                 className="form-control"
-                name="password"
-                onChange={handleLogin}
+                name="answer"
+                onChange={handleReset}
               />
             </div>
 
-            {/* <div className="mb-3 form-check">
-              <input type="checkbox" className="form-check-input" id="rememberMe" />
-              <label className="form-check-label" htmlFor="rememberMe"> Remember me </label>
-            </div> */}
+            <div className="mb-3">
+              <label htmlFor="newPassword" className="form-label">
+              New Password
+              </label>
+              <input
+                type="password"
+                id="newPassword"
+                className="form-control"
+                name="newPassword"
+                onChange={handleReset}
+              />
+            </div>
 
             <div className="d-grid gap-2">
               <button type="submit" className="btn btn-primary btn-block">
-                Login
+                Reset Password
               </button>
-            </div>
-
-            <div className="text-center mt-3">
-              <p>
-                New user? <Link to="/register">Register</Link>
-              </p>
-              <Link to="/forgot-password">Forgot password?</Link>
             </div>
           </form>
         </div>
@@ -101,4 +94,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;
