@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
+import  axios  from 'axios';
+import toast from 'react-hot-toast';
+
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [loginData, setLoginData] = useState({
     email: "",
     password: ""
@@ -13,8 +18,10 @@ const Login = () => {
     setLoginData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const res = await axios.post("http://localhost:8000/api/v1/auth/login/",loginData);
+
   }
   
   return (
