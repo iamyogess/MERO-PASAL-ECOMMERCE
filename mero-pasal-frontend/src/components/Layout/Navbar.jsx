@@ -60,15 +60,24 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <li className="nav-item">
-                    <Link
-                      onClick={handleLogout}
-                      className="nav-link"
-                      to="/login"
-                    >
-                      Logout
+                  <li className="nav-item dropdown">
+                    <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      {auth?.user.name}
                     </Link>
+                    <ul className="dropdown-menu">
+                      <li><Link className="dropdown-item" to={`/dashboard/${auth?.user?.role === true ? "admin" : "user"}`}>Dashboard</Link></li>
+                      <li>
+                        <Link
+                          onClick={handleLogout}
+                          className="dropdown-item"
+                          to="/login"
+                        >
+                          Logout
+                        </Link>
+                      </li>
+                    </ul>
                   </li>
+
                 </>
               )}
               <li className="nav-item">
