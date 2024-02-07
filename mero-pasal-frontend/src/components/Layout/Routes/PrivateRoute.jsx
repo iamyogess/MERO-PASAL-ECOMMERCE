@@ -12,12 +12,7 @@ const PrivateRoute = () => {
     const authCheck = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8000/api/v1/auth/user-auth/",
-          {
-            headers: {
-              Authorization: auth?.token,
-            },
-          }
+          "http://localhost:8000/api/v1/auth/user-auth/"
         );
         if (res.data.ok) {
           setOk(true);
@@ -34,7 +29,7 @@ const PrivateRoute = () => {
     }
   }, [auth?.token]);
 
-  return ok ? <Outlet /> : <Spinner  path=""/>;
+  return ok ? <Outlet /> : <Spinner path=""/>;
 };
 
 export default PrivateRoute;
