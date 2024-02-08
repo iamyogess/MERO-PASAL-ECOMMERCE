@@ -8,6 +8,7 @@ import connectDB from "./configs/connectDB.js";
 
 //routes
 import authRoute from "./routes/auth.route.js";
+import categoryRoute from "./routes/category.route.js";
 
 const app = express();
 const PORT = process.env.PORT;
@@ -19,6 +20,7 @@ connectDB();
 
 //routes
 app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/category", categoryRoute);
 
 app.get("/", (req, res) => {
   res.send("Hello");

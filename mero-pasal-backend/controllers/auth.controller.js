@@ -60,7 +60,7 @@ export const loginController = async (req, res) => {
     if (!email || !password) {
       return res
         .status(400)
-        .json({ success: false, message: "Invalid username or password!" });
+        .json({ success: false, message: "All fields are required!" });
     }
 
     // check user
@@ -77,7 +77,7 @@ export const loginController = async (req, res) => {
     if (!isMatch) {
       return res
         .status(400)
-        .json({ success: false, message: "Invalid password!" });
+        .json({ success: false, message: "Invalid username or password!" });
     }
 
     // token

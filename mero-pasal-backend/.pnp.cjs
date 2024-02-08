@@ -34,7 +34,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express", "npm:4.18.2"],\
             ["jsonwebtoken", "npm:9.0.2"],\
             ["mongoose", "npm:8.1.1"],\
-            ["nodemon", "npm:3.0.3"]\
+            ["nodemon", "npm:3.0.3"],\
+            ["slugify", "npm:1.6.6"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -1478,7 +1479,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express", "npm:4.18.2"],\
             ["jsonwebtoken", "npm:9.0.2"],\
             ["mongoose", "npm:8.1.1"],\
-            ["nodemon", "npm:3.0.3"]\
+            ["nodemon", "npm:3.0.3"],\
+            ["slugify", "npm:1.6.6"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -2271,6 +2273,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["simple-update-notifier", "npm:2.0.0"],\
             ["semver", "npm:7.5.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["slugify", [\
+        ["npm:1.6.6", {\
+          "packageLocation": "./.yarn/cache/slugify-npm-1.6.6-7ce458677d-04773c2d3b.zip/node_modules/slugify/",\
+          "packageDependencies": [\
+            ["slugify", "npm:1.6.6"]\
           ],\
           "linkType": "HARD"\
         }]\
