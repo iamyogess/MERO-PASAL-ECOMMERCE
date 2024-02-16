@@ -13,13 +13,17 @@ const Login = () => {
     email: "",
     password: "",
   });
+
+  // Get authentication state and setAuth function from context
   const [auth, setAuth] = useAuth();
 
+  // Function to handle changes in form inputs
   const handleLogin = (e) => {
     const { name, value } = e.target;
     setLoginData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -28,19 +32,20 @@ const Login = () => {
         loginData
       );
       if (res && res.data.success) {
-        toast.success(res.data.message);
+        // Update authentication state upon successful login
         setAuth({
           ...auth,
           user: res.data.user,
           token: res.data.token,
         });
         localStorage.setItem("auth", JSON.stringify(res.data));
-        navigate(location.state || "/");
+        navigate(location.state?.from || "/");
+        toast.success(res.data.message);
       } else {
         toast.error(res.data.message);
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       toast.error("Something went wrong!");
     }
   };
@@ -76,11 +81,6 @@ const Login = () => {
                 onChange={handleLogin}
               />
             </div>
-
-            {/* <div className="mb-3 form-check">
-              <input type="checkbox" className="form-check-input" id="rememberMe" />
-              <label className="form-check-label" htmlFor="rememberMe"> Remember me </label>
-            </div> */}
 
             <div className="d-grid gap-2">
               <button type="submit" className="btn btn-primary btn-block">

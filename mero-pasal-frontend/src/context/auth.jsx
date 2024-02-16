@@ -9,8 +9,6 @@ const AuthProvider = ({ children }) => {
     token: "",
   });
 
-  axios.defaults.headers.common["Authorization"] = auth?.token;
-
   useEffect(() => {
     const data = localStorage.getItem("auth");
     if (data) {
@@ -18,11 +16,18 @@ const AuthProvider = ({ children }) => {
       setAuth({
         ...auth,
         user: parsedData.user,
-        token: parsedData.toke,
+        token: parsedData.token, // Corrected typo
       });
     }
-    //eslint-disable-next-line
-  }, []);
+    // Include auth in the dependency array
+  }, [auth]);
+
+  // Set Authorization header only if token exists
+  if (auth.token) {
+    axios.defaults.headers.common["Authorization"] = auth.token;
+  } else {
+    delete axios.defaults.headers.common["Authorization"];
+  }
 
   return (
     <AuthContext.Provider value={[auth, setAuth]}>
@@ -31,7 +36,7 @@ const AuthProvider = ({ children }) => {
   );
 };
 
-// custom hook
+// Custom hook
 const useAuth = () => useContext(AuthContext);
 
 export { useAuth, AuthProvider };
