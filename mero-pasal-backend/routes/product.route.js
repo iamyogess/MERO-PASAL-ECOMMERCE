@@ -23,7 +23,7 @@ router.post(
   createProductController
 );
 
-router.post(
+router.put(
   "/update-product/:pid",
   requireSignIn,
   isAdmin,
