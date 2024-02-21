@@ -610,6 +610,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"express-formidable@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "express-formidable@npm:1.2.0"
+  dependencies:
+    formidable: ^1.0.17
+  checksum: a1bce48f4cd3ddd3d2c0de122e01dd781aef1a6de1b977cbd98e2979d1d3e0730e23fe17533cbb13773ffb046e33a6afb11408d532c25dc93bf3f5953aa11a3d
+  languageName: node
+  linkType: hard
+
 "express@npm:^4.18.2":
   version: 4.18.2
   resolution: "express@npm:4.18.2"
@@ -680,6 +689,13 @@ __metadata:
     cross-spawn: ^7.0.0
     signal-exit: ^4.0.1
   checksum: 139d270bc82dc9e6f8bc045fe2aae4001dc2472157044fdfad376d0a3457f77857fa883c1c8b21b491c6caade9a926a4bed3d3d2e8d3c9202b151a4cbbd0bcd5
+  languageName: node
+  linkType: hard
+
+"formidable@npm:^1.0.17":
+  version: 1.2.6
+  resolution: "formidable@npm:1.2.6"
+  checksum: 2b68ed07ba88302b9c63f8eda94f19a460cef6017bfda48348f09f41d2a36660c9353137991618e0e4c3db115b41e4b8f6fa63bc973b7a7c91dec66acdd02a56
   languageName: node
   linkType: hard
 
@@ -1238,6 +1254,7 @@ __metadata:
     cors: ^2.8.5
     dotenv: ^16.4.1
     express: ^4.18.2
+    express-formidable: ^1.2.0
     jsonwebtoken: ^9.0.2
     mongoose: ^8.1.1
     nodemon: ^3.0.3

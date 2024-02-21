@@ -16,10 +16,9 @@ const AuthProvider = ({ children }) => {
       setAuth({
         ...auth,
         user: parsedData.user,
-        token: parsedData.token, // Corrected typo
+        token: parsedData.token,
       });
     }
-    // Include auth in the dependency array
   }, [auth]);
 
   // Set Authorization header only if token exists

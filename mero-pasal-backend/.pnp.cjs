@@ -32,6 +32,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["cors", "npm:2.8.5"],\
             ["dotenv", "npm:16.4.1"],\
             ["express", "npm:4.18.2"],\
+            ["express-formidable", "npm:1.2.0"],\
             ["jsonwebtoken", "npm:9.0.2"],\
             ["mongoose", "npm:8.1.1"],\
             ["nodemon", "npm:3.0.3"],\
@@ -816,6 +817,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["express-formidable", [\
+        ["npm:1.2.0", {\
+          "packageLocation": "./.yarn/cache/express-formidable-npm-1.2.0-7e301afd29-a1bce48f4c.zip/node_modules/express-formidable/",\
+          "packageDependencies": [\
+            ["express-formidable", "npm:1.2.0"],\
+            ["formidable", "npm:1.2.6"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["fill-range", [\
         ["npm:7.0.1", {\
           "packageLocation": "./.yarn/cache/fill-range-npm-7.0.1-b8b1817caa-cc283f4e65.zip/node_modules/fill-range/",\
@@ -849,6 +860,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["foreground-child", "npm:3.1.1"],\
             ["cross-spawn", "npm:7.0.3"],\
             ["signal-exit", "npm:4.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["formidable", [\
+        ["npm:1.2.6", {\
+          "packageLocation": "./.yarn/cache/formidable-npm-1.2.6-68be5e1519-2b68ed07ba.zip/node_modules/formidable/",\
+          "packageDependencies": [\
+            ["formidable", "npm:1.2.6"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1477,6 +1497,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["cors", "npm:2.8.5"],\
             ["dotenv", "npm:16.4.1"],\
             ["express", "npm:4.18.2"],\
+            ["express-formidable", "npm:1.2.0"],\
             ["jsonwebtoken", "npm:9.0.2"],\
             ["mongoose", "npm:8.1.1"],\
             ["nodemon", "npm:3.0.3"],\
