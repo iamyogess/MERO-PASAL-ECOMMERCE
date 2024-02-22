@@ -74,7 +74,7 @@ export const updateCategoryController = async (req, res) => {
 
 export const getCategoryController = async (req, res) => {
   try {
-    const category = await CategoryModel.find({});
+    const category = await CategoryModel.find();
     if (!category) {
       return res
         .status(404)

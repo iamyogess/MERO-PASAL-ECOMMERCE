@@ -22,7 +22,7 @@ router.put(
   isAdmin,
   updateCategoryController
 );
-router.get("/category", getCategoryController);
+router.get("/get-category", getCategoryController);
 router.get("/single-category/:slug", getSingleCategoryController);
 router.delete(
   "/delete-category/:id",
