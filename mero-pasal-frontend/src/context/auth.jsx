@@ -19,8 +19,8 @@ const AuthProvider = ({ children }) => {
         token: parsedData.token,
       });
     }
-  }, [auth]);
-
+  }, []);
+  
   // Set Authorization header only if token exists
   if (auth.token) {
     axios.defaults.headers.common["Authorization"] = auth.token;
@@ -39,3 +39,5 @@ const AuthProvider = ({ children }) => {
 const useAuth = () => useContext(AuthContext);
 
 export { useAuth, AuthProvider };
+
+

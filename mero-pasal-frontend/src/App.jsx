@@ -40,7 +40,7 @@ function App() {
           <Route path="admin/update-category/:id" element={<UpdateCategory />} />
           <Route path="admin/create-product" element={<CreateProduct />} />
           <Route path="admin/users" element={<Users />} />
-
+          <Route path="admin/products" element={<Users />} />
         </Route>
 
         <Route path="/about" element={<About />} />

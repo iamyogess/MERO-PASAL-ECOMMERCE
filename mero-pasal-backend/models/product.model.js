@@ -8,8 +8,8 @@ const productSchema = new mongoose.Schema(
     price: { type: Number, required: true },
     category: { type: mongoose.ObjectId, ref: "Category" },
     quantity: { type: Number, required: true },
-    // photo: { data: Buffer, contentType: String },
-    // shipping: { type: Boolean },
+    photo: { data: Buffer, contentType: String },
+    shipping: { type: Boolean },
   },
   { timestamps: true }
 );
