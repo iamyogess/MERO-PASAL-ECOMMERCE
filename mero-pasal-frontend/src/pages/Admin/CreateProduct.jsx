@@ -66,7 +66,6 @@ const CreateProduct = () => {
         setShipping("");
         setPrice("");
 
-        // Provide feedback to the user
         toast.success("Product created successfully!");
         navigate("/dashboard/admin/products");
       } else {

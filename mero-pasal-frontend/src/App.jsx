@@ -18,6 +18,7 @@ import Users from "./pages/Admin/Users";
 import Profile from "./pages/user/Profile";
 import Orders from "./pages/user/Orders";
 import UpdateCategory from "./components/form/UpdateCategory";
+import Products from "./pages/Admin/Products";
 
 function App() {
   return (
@@ -40,7 +41,7 @@ function App() {
           <Route path="admin/update-category/:id" element={<UpdateCategory />} />
           <Route path="admin/create-product" element={<CreateProduct />} />
           <Route path="admin/users" element={<Users />} />
-          <Route path="admin/products" element={<Users />} />
+          <Route path="admin/products" element={<Products />} />
         </Route>
 
         <Route path="/about" element={<About />} />
