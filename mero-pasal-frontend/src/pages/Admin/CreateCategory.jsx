@@ -4,6 +4,8 @@ import AdminMenu from '../../components/Layout/AdminMenu'
 import toast from "react-hot-toast";
 import axios from "axios";
 import CategoryForm from '../../components/form/CategoryForm';
+import UpdateCategory from '../../components/form/UpdateCategory';
+import { Link } from "react-router-dom";
 
 const CreateCategory = () => {
   const [categories, setCategories] = useState([]);
@@ -42,6 +44,16 @@ const CreateCategory = () => {
     getAllCategory();
   }, []);
 
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:8000/api/v1/category/delete-category/${id}`);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+      toast.error("Error deleting category!");
+    }
+  }
+
   return (
     <Layout>
       <div className='container-fluid m-3 p-3'>
@@ -65,8 +77,10 @@ const CreateCategory = () => {
                     <>
                       <tr>
                         <td key={category._id}>{category.name}</td>
-                        <td><button className='btn btn-primary' onClick={() => (setVisible(true))}>Edit</button></td>
-                        <td><button className='btn btn-danger'>Delete</button></td>
+                        {console.log(category._id)}
+                        <td><Link to={`/dashboard/admin/update-category/${category._id}`} className="text-white text-decoration-none btn btn-primary">Edit</Link></td>
+                        <td><button className='btn btn-danger' onClick={() => handleDelete(category._id)}>Delete</button></td>
+
                       </tr>
                     </>
                   ))}
